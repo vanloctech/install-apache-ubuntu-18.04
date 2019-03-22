@@ -1,1 +1,2 @@
-# installcodephpubuntu
+# Install LAMP: APACHE2, PHP, MYSQL, PHPMYADMIN, CURL FOR UBUNTU 16.04, 18.04
+# 
