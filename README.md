@@ -41,4 +41,4 @@ Cho phép lưu lượng HTTP và HTTPS đến cho cấu hình này
 $ sudo ufw allow in "Apache Full"
 ```
 Truy cập ``` http://localhost ``` sẽ có kết quả sau:
-![http://assets.digitalocean.com/articles/how-to-install-lamp-ubuntu-18/small_apache_default_1804.png]
+![ahihi](http://assets.digitalocean.com/articles/how-to-install-lamp-ubuntu-18/small_apache_default_1804.png)
