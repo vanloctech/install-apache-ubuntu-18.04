@@ -188,11 +188,65 @@ $ sudo phpenmod mbstring
 ```
 Khởi động lại apache2
 ```
-sudo systemctl restart apache2
+$ sudo systemctl restart apache2
 ```
 Chạy `localhost/phpmyadmin` để kiểm tra, sẽ có yêu cầu đăng nhập như sau, dùng tài khoản `root` và `password` để đăng nhập
 
 ![phpmyadmin](https://assets.digitalocean.com/articles/phpmyadmin_1804/phpmyadmin_sammy_login_small.png)
+
+## Bước 4: Cài Sqlite3
+
+```
+$ sudo apt-get install php-sqlite3
+```
+
+## Bước 5: Cấu hình mod_rewrite cho apache2
+
+Chạy lệnh
+```
+$ sudo a2enmod rewrite
+```
+Sau đó mở file `000-default.conf`
+```
+$ sudo nano /etc/apache2/sites-enabled/000-default.conf
+```
+Tìm dòng `<VirtualHost *:80>` và thêm đoạn code sau vào
+```
+<Directory /var/www/html>
+                Options Indexes FollowSymLinks MultiViews
+                AllowOverride All
+                Order allow,deny
+                allow from all
+</Directory>
+```
+File của bạn bây giờ phải giống như sau. Hãy chắc chắn rằng tất cả các khối được thụt lề đúng cách.
+```
+<VirtualHost *:80>
+    <Directory /var/www/html>
+
+        . . .
+
+    </Directory>
+
+    . . .
+</VirtualHost>
+```
+Khởi động lại apache2
+```
+$ sudo service apache2 restart
+```
+Tạo file `.htaccess`
+```
+$ sudo nano /var/www/html/.htaccess
+```
+Thêm dòng này vào file
+```
+RewriteEngine on
+```
+Set quyền cho file
+```
+sudo chmod 644 /var/www/html/.htaccess
+```
 
 Hoàn thành
 
