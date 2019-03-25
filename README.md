@@ -41,7 +41,8 @@ Cho phép lưu lượng HTTP và HTTPS đến cho cấu hình này
 $ sudo ufw allow in "Apache Full"
 ```
 Truy cập ``` http://localhost ``` sẽ có kết quả sau:
-![ahihi](http://assets.digitalocean.com/articles/how-to-install-lamp-ubuntu-18/small_apache_default_1804.png)
+
+![ap](http://assets.digitalocean.com/articles/how-to-install-lamp-ubuntu-18/small_apache_default_1804.png)
 
 Cài đặt CURL
 ```
@@ -106,6 +107,23 @@ Chạy lệnh sau để khai báo thay đổi cho máy chủ
 ```
 mysql> FLUSH PRIVILEGES;
 ```
+Kiểm tra lại bằng cách chạy lệnh
+```
+mysql> SELECT user,authentication_string,plugin,host FROM mysql.user;
+```
+Dòng `root` tương tự bảng sau là thành công
+```
++------------------+-------------------------------------------+-----------------------+-----------+
+| user             | authentication_string                     | plugin                | host      |
++------------------+-------------------------------------------+-----------------------+-----------+
+| root             | *DE06E242B88EFB1FE4B5083587C260BACB2A6158 | mysql_native_password | localhost |
+| mysql.session    | *THISISNOTAVALIDPASSWORDTHATCANBEUSEDHERE | mysql_native_password | localhost |
+| mysql.sys        | *THISISNOTAVALIDPASSWORDTHATCANBEUSEDHERE | mysql_native_password | localhost |
+| debian-sys-maint | *8486437DE5F65ADC4A4B001CA591363B64746D4C | mysql_native_password | localhost |
+| phpmyadmin       | *5FD2B7524254B7F81B32873B1EA6D681503A5CA9 | mysql_native_password | localhost |
++------------------+-------------------------------------------+-----------------------+-----------+
+5 rows in set (0.00 sec)
+```
 Exit mysql
 ```
 mysql> exit;
@@ -162,7 +180,7 @@ $ sudo apt install phpmyadmin php-mbstring php-gettext
 ```
 Sau đó sẽ hiện ra hộp thoại
 
-<b style="color:red;">Cảnh báo:</b> Khi lời nhắc xuất hiện "apache2" highlight, nhưng không được chọn. Nhấn `SPACE`, `TAB` và sau đó `ENTER` để chọn Apache.
+<b style="color:red;">Cảnh báo:</b> Khi hộp thoại xuất hiện "apache2" được highlight, nhưng nó chưa được chọn. Nhấn `SPACE`, `TAB` và sau đó `ENTER` để chọn Apache.
 Chọn `yes` khi được hỏi
 Cài thêm extension
 ```
@@ -172,6 +190,10 @@ Khởi động lại apache2
 ```
 sudo systemctl restart apache2
 ```
+Chạy `localhost/phpmyadmin` để kiểm tra, sẽ có yêu cầu đăng nhập như sau, dùng tài khoản `root` và `password` để đăng nhập
+
+![phpmyadmin](https://assets.digitalocean.com/articles/phpmyadmin_1804/phpmyadmin_sammy_login_small.png)
+
 Hoàn thành
 
 ## Bonus 1: Tạo thêm tài khoản cho mysql truy cập phpmyadmin
