@@ -248,6 +248,12 @@ Set quyền cho file
 sudo chmod 644 /var/www/html/.htaccess
 ```
 
+Sau đó chạy lệnh sau để cấp quyền cho thư mục
+```
+$ sudo chmod -R 777 /var/www
+```
+Đường dẫn chứa các file và thư mục bạn code php sẽ phải nằm trong đường dẫn `/var/www/html/`
+
 Hoàn thành
 
 ## Bonus 1: Tạo thêm tài khoản cho mysql truy cập phpmyadmin
