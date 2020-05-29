@@ -58,6 +58,8 @@ $ sudo apt install mysql-server
 ```
 Nhấn Y và enter khi được hỏi để tiếp tục
 
+Có 2 tùy chọn cài đặt mysql: 1 là không yêu cầu mật khẩu, 2 là có mật khẩu.
+
 Chạy lệnh để bảo mật mysql
 ```
 $ sudo mysql_secure_installation
@@ -129,7 +131,7 @@ Exit mysql
 mysql> exit;
 ```
 
-Nếu cài mysql bị lỗi, kéo xuống dưới để xem cách gỡ cài đặt và chạy lại
+Nếu cài mysql bị lỗi, kéo xuống dưới để xem cách gỡ cài đặt và cài lại
 
 ## Bước 3: Cài đặt PHP
 
