@@ -60,6 +60,8 @@ Nhấn Y và enter khi được hỏi để tiếp tục
 
 Có 2 tùy chọn cài đặt mysql: 1 là không yêu cầu mật khẩu, 2 là có mật khẩu.
 
+Bài viết này sử dụng tùy chọn 2 là "Có mật khẩu" để không phải chỉnh trong các file khác sẽ nhanh hơn và bảo mật hơn.
+
 Chạy lệnh để bảo mật mysql
 ```
 $ sudo mysql_secure_installation
@@ -76,7 +78,8 @@ STRONG Length >= 8, numeric, mixed case, special characters and dictionary      
 
 Please enter 0 = LOW, 1 = MEDIUM and 2 = STRONG: 1
 ```
-Chọn 1 và nhấn enter, sau đó điền mật khẩu gồm chữ, số, ky tự đặc biệt
+Chọn 0 và nhấn enter, sau đó điền mật khẩu gồm 8 ký tự trở lên.
+(Có thể chọn 1 hoặc 2 nếu bạn muốn mật khẩu gồm ký tự chữ số,... để bảo mật hơn - khuyên chọn 0)
 Nhấn `Y` với tất cả các phần còn lại nếu được hỏi
 
 Truy cập mysql
@@ -101,11 +104,12 @@ Output
 +------------------+-------------------------------------------+-----------------------+-----------+
 4 rows in set (0.00 sec)
 ```
-Tiếp theo chạy lệnh sau và thay password thành password của bạn
+<b style="color:red;">!!!Lưu ý: đọc kỹ dòng bên dưới</b>
+Tiếp theo chạy lệnh sau và thay chỗ <mật khẩu của bạn> thành mật khẩu mà bạn muốn dùng để đăng nhập vào mysql cho tài khoản root
 ```
-mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '<mật khẩu của bạn>';
 ```
-Chạy lệnh sau để khai báo thay đổi cho máy chủ
+Chạy lệnh sau để khai báo thay đổi mật khẩu cho máy chủ
 ```
 mysql> FLUSH PRIVILEGES;
 ```
@@ -143,19 +147,19 @@ Chuyển loại file chạy mặc định `index.php` lên đầu, mở file `di
 ```
 $ sudo nano /etc/apache2/mods-enabled/dir.conf
 ```
-Nó sẽ như thế này
+Khi chạy lệnh trên nó sẽ như thế này
 ```
 <IfModule mod_dir.c>
     DirectoryIndex index.html index.cgi index.pl index.php index.xhtml index.htm
 </IfModule>
 ```
-Chuyển `index.php` lên đầu
+Chuyển `index.php` vào giữa "index.html" và sau "DirectoryIndex" như dưới đây
 ```
 <IfModule mod_dir.c>
     DirectoryIndex index.php index.html index.cgi index.pl index.xhtml index.htm
 </IfModule>
 ```
-Đóng và lưu bằng cách nhấn `CTRL + X` và `Y` sau đó `Enter`
+Lưu lại và đóng bằng cách nhấn `CTRL + X` và `Y` sau đó `Enter`
 Khởi động lại apache2
 ```
 $ sudo systemctl restart apache2
