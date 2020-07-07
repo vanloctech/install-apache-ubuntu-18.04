@@ -42,7 +42,7 @@ $ sudo ufw allow in "Apache Full"
 ```
 Truy cập ``` http://localhost ``` sẽ có kết quả sau:
 
-![ap](http://assets.digitalocean.com/articles/how-to-install-lamp-ubuntu-18/small_apache_default_1804.png)
+![ap](http://assets.digitalocean.com/articles/how-to-install-lamp-ubuntu-18/small_apache_default_1804.png =300x)
 
 Cài đặt CURL
 ```
@@ -104,8 +104,9 @@ Output
 +------------------+-------------------------------------------+-----------------------+-----------+
 4 rows in set (0.00 sec)
 ```
-<b style="color:red;">!!!Lưu ý: đọc kỹ dòng bên dưới</b>
-Tiếp theo chạy lệnh sau và thay chỗ <mật khẩu của bạn> thành mật khẩu mà bạn muốn dùng để đăng nhập vào mysql cho tài khoản root
+<b style="color:red;">!!!Lưu ý: đọc kỹ dòng bên dưới</b><br/>
+
+Tiếp theo chạy lệnh sau và thay chỗ <mật khẩu của bạn> thành mật khẩu mà bạn muốn dùng để đăng nhập vào mysql cho tài khoản "root"
 ```
 mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '<mật khẩu của bạn>';
 ```
