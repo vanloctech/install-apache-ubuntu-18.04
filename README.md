@@ -42,7 +42,7 @@ $ sudo ufw allow in "Apache Full"
 ```
 Truy cập ``` http://localhost ``` sẽ có kết quả sau:
 
-![ap](http://assets.digitalocean.com/articles/how-to-install-lamp-ubuntu-18/small_apache_default_1804.png =300x)
+<img src="http://assets.digitalocean.com/articles/how-to-install-lamp-ubuntu-18/small_apache_default_1804.png" alt="localhost" width="300"/>
 
 Cài đặt CURL
 ```
