@@ -199,9 +199,9 @@ $ sudo systemctl restart apache2
 ```
 Chạy `localhost/phpmyadmin` để kiểm tra, sẽ có yêu cầu đăng nhập như sau, dùng tài khoản `root` và `password` để đăng nhập
 
-![phpmyadmin](https://assets.digitalocean.com/articles/phpmyadmin_1804/phpmyadmin_sammy_login_small.png)
+<img src="https://assets.digitalocean.com/articles/phpmyadmin_1804/phpmyadmin_sammy_login_small.png" alt="phpmyadmin" width="300"/>
 
-## Bước 4: Cài Sqlite3
+## Bước 4: Cài Sqlite3 (tùy chọn - cài cho chắc :3)
 
 ```
 $ sudo apt-get install php-sqlite3
