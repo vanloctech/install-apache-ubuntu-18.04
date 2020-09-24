@@ -1,4 +1,4 @@
-# Hướng dẫn cài Apache, MySQL, PHP (LAMP) stack, Phpmyadmin, CURL trên Ubuntu 18.04
+# Hướng dẫn cài Apache, MySQL, PHP (LAMP) stack, Phpmyadmin, CURL trên Ubuntu 16.04, 18.04, 20.4
 
 ## Bước 1: Cài đặt Apache và Update tường lửa
 
@@ -194,7 +194,8 @@ Chọn `yes` khi được hỏi có sử dụng `dbconfig-common` để thiết 
 Sau đó, bạn sẽ được yêu cầu chọn và xác nhận mật khẩu ứng dụng MySQL cho phpMyAdmin
 
 ```
-Lưu ý : Giả sử bạn bị lỗi như hình bên dưới, bạn có thể đã quyết định bật plugin Xác thực mật khẩu. Theo văn bản này, việc kích hoạt thành phần này sẽ gây ra lỗi khi bạn cố gắng đặt mật khẩu cho người dùng phpmyadmin:
+Lưu ý : Giả sử bạn bị lỗi như hình bên dưới (nếu không lỗi vui lòng bỏ qua lưu ý này), bạn có thể đã quyết định bật plugin Xác thực mật khẩu. 
+Theo hướng dẫn này, việc kích hoạt thành phần này sẽ gây ra lỗi khi bạn cố gắng đặt mật khẩu cho người dùng phpmyadmin:
 
 <img src="https://assets.digitalocean.com/articles/phpmyadmin_2004/pma_vpp_error.png" alt="error_phpmyadmin" width="300">
 
@@ -224,7 +225,8 @@ Cài đặt lại phpmyadmin:
 
 sudo apt install phpmyadmin
 
-Khi phpMyAdmin được cài đặt, bạn có thể mở lại lời nhắc MySQL bằng sudo mysqlhoặc mysql -u root -pvà sau đó chạy lệnh sau để kích hoạt lại thành phần Xác thực Mật khẩu:
+Khi phpMyAdmin được cài đặt, bạn có thể mở lại lời nhắc MySQL bằng `sudo mysql` hoặc `mysql -u root -p`
+và sau đó chạy lệnh sau để kích hoạt lại thành phần Xác thực Mật khẩu:
 
 mysql> INSTALL COMPONENT "file://component_validate_password";
 
