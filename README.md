@@ -193,9 +193,9 @@ Chọn `yes` khi được hỏi có sử dụng `dbconfig-common` để thiết 
 
 Sau đó, bạn sẽ được yêu cầu chọn và xác nhận mật khẩu ứng dụng MySQL cho phpMyAdmin
 
-```
-Lưu ý : Giả sử bạn bị lỗi như hình bên dưới (nếu không lỗi vui lòng bỏ qua lưu ý này), bạn có thể đã quyết định bật plugin Xác thực mật khẩu. 
-Theo hướng dẫn này, việc kích hoạt thành phần này sẽ gây ra lỗi khi bạn cố gắng đặt mật khẩu cho người dùng phpmyadmin:
+<b>BẮT ĐẦU LƯU Ý</b>
+Lưu ý : Giả sử bạn bị lỗi như hình bên dưới <b>(nếu không lỗi vui lòng bỏ qua lưu ý này)</b>, 
+bạn có thể đã bật plugin Xác thực mật khẩu, việc kích hoạt thành phần này sẽ gây ra lỗi khi bạn cố gắng đặt mật khẩu cho người dùng phpmyadmin:
 
 <img src="https://assets.digitalocean.com/articles/phpmyadmin_2004/pma_vpp_error.png" alt="error_phpmyadmin" width="300">
 
@@ -203,31 +203,41 @@ Theo hướng dẫn này, việc kích hoạt thành phần này sẽ gây ra l�
 
 Chạy lệnh dưới để gỡ phpmyadmin:
 
+```
 sudo apt purge phpmyadmin
-
+```
+```
 sudo apt autoremove
+```
 
 Sau đó, mở lời nhắc MySQL của bạn:
 
+```
 sudo mysql
+```
 
 hoặc nếu bạn đã thực hiện tạo mật khẩu cho account root ở trên:
 
+```
 sudo mysql -u root -p
+```
 
 Khi truy cập vào mysql chạy lệnh sau để tắt xác thực mật khẩu:
-
+```
 mysql> UNINSTALL COMPONENT "file://component_validate_password";
-
+```
+```
 mysql> exit
+```
 
 Cài đặt lại phpmyadmin:
-
+```
 sudo apt install phpmyadmin
+```
 
 Khi phpMyAdmin được cài đặt, bạn có thể mở lại lời nhắc MySQL bằng `sudo mysql` hoặc `mysql -u root -p`
 và sau đó chạy lệnh sau để kích hoạt lại thành phần Xác thực Mật khẩu:
-
+```
 mysql> INSTALL COMPONENT "file://component_validate_password";
 
 ```
