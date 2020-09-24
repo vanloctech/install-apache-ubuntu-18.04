@@ -189,6 +189,47 @@ Sau đó sẽ hiện ra hộp thoại
 
 <b style="color:red;">Cảnh báo:</b> Khi hộp thoại xuất hiện "apache2" được highlight, nhưng nó chưa được chọn. Nhấn `SPACE`, `TAB` và sau đó `ENTER` để chọn Apache.
 Chọn `yes` khi được hỏi
+Chọn `yes` khi được hỏi có sử dụng `dbconfig-common` để thiết lập cơ sở dữ liệu hay không.
+
+Sau đó, bạn sẽ được yêu cầu chọn và xác nhận mật khẩu ứng dụng MySQL cho phpMyAdmin
+
+```
+Lưu ý : Giả sử bạn bị lỗi như hình bên dưới, bạn có thể đã quyết định bật plugin Xác thực mật khẩu. Theo văn bản này, việc kích hoạt thành phần này sẽ gây ra lỗi khi bạn cố gắng đặt mật khẩu cho người dùng phpmyadmin:
+
+<img src="https://assets.digitalocean.com/articles/phpmyadmin_2004/pma_vpp_error.png" alt="error_phpmyadmin" width="300">
+
+Để giải quyết vấn đề này, hãy chọn tùy chọn `abort` để dừng quá trình cài đặt.
+
+Chạy lệnh dưới để gỡ phpmyadmin:
+
+sudo apt purge phpmyadmin
+
+sudo apt autoremove
+
+Sau đó, mở lời nhắc MySQL của bạn:
+
+sudo mysql
+
+hoặc nếu bạn đã thực hiện tạo mật khẩu cho account root ở trên:
+
+sudo mysql -u root -p
+
+Khi truy cập vào mysql chạy lệnh sau để tắt xác thực mật khẩu:
+
+mysql> UNINSTALL COMPONENT "file://component_validate_password";
+
+mysql> exit
+
+Cài đặt lại phpmyadmin:
+
+sudo apt install phpmyadmin
+
+Khi phpMyAdmin được cài đặt, bạn có thể mở lại lời nhắc MySQL bằng sudo mysqlhoặc mysql -u root -pvà sau đó chạy lệnh sau để kích hoạt lại thành phần Xác thực Mật khẩu:
+
+mysql> INSTALL COMPONENT "file://component_validate_password";
+
+```
+
 Cài thêm extension
 ```
 $ sudo phpenmod mbstring
